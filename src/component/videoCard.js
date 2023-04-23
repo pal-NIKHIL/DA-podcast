@@ -1,18 +1,23 @@
-import "../index.css"
-export const VideoCard = ({snippet})=>{
-    const {title,thumbnails,channelTitle} =snippet
-    return <div className="videocard">
+import { Link } from "react-router-dom";
+import "../index.css";
+export const VideoCard = ({ snippet }) => {
+  //const { title, thumbnails, channelTitle } = snippet;
+  console.log(snippet.id);
+  return (
+    <Link to={`/cards/${snippet.id}`}>
+      <div className="videocard">
         <div>
-            <img src={thumbnails.medium.url}/>
+          <img src={snippet.thumbnail} />
         </div>
         <div className="flex2">
-            <img src="https://yt3.googleusercontent.com/-CFTJHU7fEWb7BYEb6Jh9gm1EpetvVGQqtof0Rbh-VQRIznYYKJxCaqv_9HeBcmJmIsp2vOO9JU=s900-c-k-c0x00ffffff-no-rj" className="usericon"/>
-            <div>
-                <h5>{channelTitle}</h5>
-            </div>
+          <div>
+            <h5>{snippet.title}</h5>
+          </div>
         </div>
-    </div>
-}
+      </div>
+    </Link>
+  );
+};
 // export const VideoCard = ()=>{
 //     return <div className="videocard">
 //         <div>

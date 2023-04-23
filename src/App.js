@@ -12,6 +12,7 @@ import { Audio } from "./pages/Audio";
 import { Video } from "./pages/Video";
 import { Login } from "./pages/Login";
 import Signup from "./pages/Signup";
+import { Audiodes } from "./pages/Audiodes";
 
 export const AuthContext = createContext();
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/Video" element={<Video />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/cards/:id" element={<Audiodes />} />
         </Routes>
       </div>
     </AuthContext.Provider>
