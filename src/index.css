@@ -6,21 +6,36 @@
   box-sizing: border-box;
 }
 :root {
-  --background-color:#EEEEEE;
+  --background-color:#E3F0FF;
   --primary-text-color: #393E46;
   --secondary-text-color: #8d8c8c;
   --padding-inline-section: 20px;
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--background-color);
+  background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
+}
+.Card-Container{
+  color: #FFFFFF;
+  padding: var(--padding-inline-section);
+  height: 100%;
+    background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0px 25px 40px #1687d933;
+}
+.mainpodcast img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  box-shadow: 0px 25px 40px #1687d933;
 }
 .container {
-  max-width: 1180px;
+  max-width: 90%;
   margin-inline: auto;
   padding-inline: var(--padding-inline-section);
 }
-
 h1 {
   font-size: 3rem;
 }
@@ -50,16 +65,15 @@ ul {
 }
 
 .small-bold-text {
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+
+.small-bold-text2 {
+  font-size: 1.1rem;
   font-weight: 500;
 }
-
-.container {
-  max-width: 1180px;
-  margin-inline: auto;
-  padding-inline: var(--padding-inline-section);
-}
-
 .flex {
   display: flex;
   align-items: center;
@@ -70,6 +84,7 @@ ul {
   transition: 0.2s ease-in-out;
 }
 .header-links a:hover{
+  color: var(--primary-text-color);
   text-decoration: underline;
 }
 
@@ -81,7 +96,7 @@ ul {
   color: var(--primary-text-color)
 }
 .primary-button:hover {
-  background-color: var(--background-color)
+  color:var(--primary-text-color)
 }
 
 .secondary-button {
@@ -93,10 +108,16 @@ ul {
 }
 
 .secondary-button:hover {
-  background-color: var(--background-color);
+  background-color: #E3F0FF;
   color: var(--primary-text-color);
 }
 
+.tertiary-button{
+  font-weight: 500;
+  padding: 6px 24px;
+  background-color: #C0DBEA;
+  border-radius: 30px;
+}
 
 .banner-text {
   color: white;
@@ -130,7 +151,7 @@ header {
   padding: var(--padding-inline-section);
   justify-content: center;
   gap: 50px;
-  margin-block: 10px;
+  margin-block: 35px;
 }
 
 .header-left {
@@ -141,17 +162,17 @@ header {
   margin-top: 10px;
 }
 
-.header-left p {
-  margin-top: 10px;
-  font-size: 1.1rem;
-}
+/*.header-left p {*/
+/*  margin-top: 10px;*/
+/*  font-size: 1.1rem;*/
+/*}*/
 
 .header-left a {
   margin-top: 20px;
 }
 
 .header-right img {
-  width: 80vh;
+  width: 100vh;
 }
 .company-motto {
   text-align: center;
@@ -237,3 +258,48 @@ header {
   flex-direction: column;
   gap: 20px;
 }
+.video-grid{
+  display: grid;
+  grid-template-columns: 5em 100px 30%;
+  grid-template-rows: 200px auto;
+  gap: 10px;
+}
+.flex2{
+  display: flex;
+  width: fit-content;
+  margin-top: var(--padding-inline-section);
+  justify-content: space-between;
+  gap: 10px;
+}
+.videocard{
+  display: flex;
+  flex-direction: column;
+  margin:var(--padding-inline-section)
+}
+.thumbnail{
+  width: 300px;
+}
+.usericon{
+  width: 40px;
+  height: 40px;
+}
+
+.flex3{
+  flex-direction: row;
+  padding: 5px var(--padding-inline-section);
+}
+.list{
+  background: var(--primary-text-color);
+  overflow: scroll;
+}
+.podcastList{
+    padding:40px 0px;
+}
+.videoMainSection{
+  width: 100%;
+  height: 70vh;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+

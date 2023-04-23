@@ -1,4 +1,4 @@
-import "../index.css"
+import "../../index.css"
 import {LeftMainSection} from "./left";
 import {RightMainSection} from "./right";
 export const MainSection = ()=>{

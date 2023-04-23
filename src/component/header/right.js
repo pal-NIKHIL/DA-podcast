@@ -1,4 +1,4 @@
-import "../index.css"
+import "../../index.css"
 
 export const RightMainSection = () => {
     return <div className="header-right">

@@ -1,7 +1,7 @@
-import AppleLogo from "../assest/apple-podcast.png"
-import GoogleLogo from "../assest/Google-Podcast-Logo.png"
-import SpotifiyLogo from "../assest/Spotify_Logo.png"
-import YoutubeLogo from "../assest/YouTube-Logo.png"
+import AppleLogo from "../../assest/apple-podcast.png"
+import GoogleLogo from "../../assest/Google-Podcast-Logo.png"
+import SpotifiyLogo from "../../assest/Spotify_Logo.png"
+import YoutubeLogo from "../../assest/YouTube-Logo.png"
 
 export const Footer = () => {
     return <section className="companies-section">
