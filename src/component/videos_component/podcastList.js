@@ -31,14 +31,15 @@ export const PodcastList = () => {
         }
         var artistID = await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=artist',artistParameters)
             .then(response=> {
+                console.log(response)
                 return response.json()
             })
             .then(data=>{
-                // console.log(data)
+                console.log(data)
                 return data.artists.items[0].id})
         var returnedAlbum =await fetch('https://api.spotify.com/v1/artists/'+artistID+'/albums'+'?include_groups=album&market=US&limit=50',artistParameters)
             .then(response=> {
-                // console.log(response)
+                console.log(response)
                 return response.json()
             })
             .then(data=> {
