@@ -4,15 +4,11 @@ export const MenuItem = [
         url:"/",
     },
     {
-        title:"Product",
-        url:"/Product",
+        title:"Search",
+        url:"/Search",
     },
     {
-        title:"Audio",
-        url:"/Audio",
-    },
-    {
-        title:"Video",
-        url:"/Video",
+        title:"Podcast",
+        url:"/Podcast",
     }
 ]

@@ -2,24 +2,65 @@ import { useEffect, useState } from "react";
 import { VideoCard } from "../videoCard";
 import axios from "axios";
 export const PodcastList = () => {
-  const [video, setVideo] = useState([]);
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/best-podcasts")
-      .then((response) => setVideo(response.data.podcasts))
-      .catch((error) => console.error(error));
-  }, []);
-  return (
-    <div className="header-left">
+  // const [video, setVideo] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/best-podcasts")
+  //     .then((response) => setVideo(response.data.podcasts))
+  //     .catch((error) => console.error(error));
+  // }, []);
+    const clientsecret="622ba61d4307470dba2028a53d3aa4f5"
+    const clienId="c2355d2a3db94583b202d3f70806cef3"
+    const searchInput = "podcast"
+    const [accesstoken,setAccessToken]=useState("")
+    const [albums,setAlbums]=useState([])
+    useEffect(()=>{
+        var authParameters= {
+            method:'POST',
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded'
+            },
+            body:'grant_type=client_credentials&client_id='+ clienId + '&client_secret=' +clientsecret
+        }
+        fetch('https://accounts.spotify.com/api/token',authParameters)
+            .then(result=>result.json())
+            .then(data=> {
+                setAccessToken(data.access_token)
+            })
+        async  function search(){
+            var artistParameters={
+                method: 'GET',
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':'Bearer ' + accesstoken
+                }
+            }
+            var artistID = await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=artist',artistParameters)
+                .then(response=>response.json())
+                .then(data=>{return data.artists.items[0].id})
+            var returnedAlbum =await fetch('https://api.spotify.com/v1/artists/'+artistID+'/albums'+'?include_groups=album&market=US&limit=50',artistParameters)
+                .then(response=> {
+                    return response.json()
+                })
+                .then(data=> {
+                    setAlbums(data.items)
+                })
+        }
+        search()
+    },[])
+
+
+    return (
+    <div className="podcastList">
       <h1 className="small-bold-text">TRENDING</h1>
       <h2>BEST PODCAST</h2>
-      <div className="row">
-        {!video ? (
+      <div className="row"> 
+        {!albums ? (
           <div>Loding</div>
         ) : (
-          video.map((data) => {
+          albums.map((data,index) => {
             return (
-              <div key={data.id}>
+              <div key={index}>
                 <VideoCard snippet={data}></VideoCard>;
               </div>
             );
@@ -28,23 +69,4 @@ export const PodcastList = () => {
       </div>
     </div>
   );
-  // return <div className="podcastList">
-  //     <h1  className="small-bold-text">TRENDING</h1>
-  //     <h2>BEST PODCAST</h2>
-  //     <div className="row">
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //         <VideoCard />
-  //
-  //     </div>
-  // </div>
 };
