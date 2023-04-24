@@ -50,7 +50,7 @@ export const TopPodcast = () => {
                     <h3 className="m-2">{index + 1}</h3>
                     <img src={album.images[1].url} style={{ height: 80, borderRadius: "50%" }} />
                     <div className="flex3 ml-3">
-                        <h6>{album.name.slice(0, 25)}</h6>
+                        <h6>{album.name.slice(0, 50)}</h6>
                         <a href={album.external_urls.spotify} target="_blank" rel="noreferrer">
                             <img src={"https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/991px-Spotify_icon.svg.png"} width="24" height="24" alt="Spotify Icon" />
                         </a>

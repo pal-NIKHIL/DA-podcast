@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../index.css";
+
 export const VideoCard = ({ snippet }) => {
   console.log("nikhil",snippet)
   return (
@@ -8,8 +9,8 @@ export const VideoCard = ({ snippet }) => {
         <div className="movie-card">
           <img src={snippet.images[0].url}/>
             <div className="card__details">
-              <div className="name m-2">{snippet.name.slice(0,30)}</div>
-              <button className="secondary-button m-2">Read more</button>
+              <div className="name">{snippet.name.slice(0,19)}</div>
+              <button className="secondary-button">Listen</button>
             </div>
         </div>
       </div>

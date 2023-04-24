@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { VideoCard } from "../videoCard";
-
 export const PodcastList = () => {
     const clientsecret="62d5362cb81d48e19dfea53914aa73d0"
     const clienId="4d0375737d3c4524ab8dbd0870baddd6"
@@ -53,7 +52,7 @@ export const PodcastList = () => {
 
     return (
         <div className="podcastList">
-            <h1 className="small-bold-text">TRENDING</h1>
+            <h3>#TRENDING</h3>
             <h2>BEST PODCAST</h2>
             <div className="row">
                 {loading ? (
