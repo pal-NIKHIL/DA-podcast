@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 export const TopPodcast = () => {
-    const clientsecret="622ba61d4307470dba2028a53d3aa4f5"
-    const clienId="c2355d2a3db94583b202d3f70806cef3"
+    const clientsecret="62d5362cb81d48e19dfea53914aa73d0"
+    const clienId="4d0375737d3c4524ab8dbd0870baddd6"
     const searchInput = "podcast"
     const [accesstoken,setAccessToken]=useState("")
     const [albums,setAlbums]=useState([])
