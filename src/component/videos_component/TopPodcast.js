@@ -18,33 +18,33 @@ export const TopPodcast = () => {
             .then(data=> {
                 setAccessToken(data.access_token)
             })
-        async  function search(){
-            var artistParameters={
-                method: 'GET',
-                headers:{
-                    'Content-Type':'application/json',
-                    'Authorization':'Bearer ' + accesstoken
-                }
-            }
-            var artistID = await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=artist',artistParameters)
-                .then(response=>response.json())
-                .then(data=>{return data.artists.items[0].id})
-            var returnedAlbum =await fetch('https://api.spotify.com/v1/artists/'+artistID+'/albums'+'?include_groups=album&market=US&limit=50',artistParameters)
-                .then(response=> {
-                    return response.json()
-                })
-                .then(data=> {
-                    setAlbums(data.items)
-                })
-        }
+
         search()
     },[])
-
+    async  function search(){
+        var artistParameters={
+            method: 'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':'Bearer ' + accesstoken
+            }
+        }
+        var artistID = await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=artist',artistParameters)
+            .then(response=>response.json())
+            .then(data=>{return data.artists.items[0].id})
+        var returnedAlbum =await fetch('https://api.spotify.com/v1/artists/'+artistID+'/albums'+'?include_groups=album&market=US&limit=50',artistParameters)
+            .then(response=> {
+                return response.json()
+            })
+            .then(data=> {
+                setAlbums(data.items)
+            })
+    }
 
     return (
         <div className="flex3 list Card-Container">
             <h2>Top Playlist</h2>
-            <hr />
+            <hr color={"white"}/>
             {albums.map((album, index) => (
                 <div className="flex mb-3" key={index}>
                     <h3 className="m-2">{index + 1}</h3>

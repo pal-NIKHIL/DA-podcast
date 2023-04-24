@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { VideoCard } from "../videoCard";
-import axios from "axios";
 export const PodcastList = () => {
-  // const [video, setVideo] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5000/best-podcasts")
-  //     .then((response) => setVideo(response.data.podcasts))
-  //     .catch((error) => console.error(error));
-  // }, []);
     const clientsecret="62d5362cb81d48e19dfea53914aa73d0"
     const clienId="4d0375737d3c4524ab8dbd0870baddd6"
     const searchInput = "podcast"
@@ -27,36 +19,40 @@ export const PodcastList = () => {
             .then(data=> {
                 setAccessToken(data.access_token)
             })
-        async  function search(){
-            var artistParameters={
-                method: 'GET',
-                headers:{
-                    'Content-Type':'application/json',
-                    'Authorization':'Bearer ' + accesstoken
-                }
-            }
-            var artistID = await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=artist',artistParameters)
-                .then(response=>response.json())
-                .then(data=>{return data.artists.items[0].id})
-            var returnedAlbum =await fetch('https://api.spotify.com/v1/artists/'+artistID+'/albums'+'?include_groups=album&market=US&limit=50',artistParameters)
-                .then(response=> {
-                    return response.json()
-                })
-                .then(data=> {
-                    setAlbums(data.items)
-                })
-        }
         search()
     },[])
-
+    async  function search(){
+        var artistParameters={
+            method: 'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':'Bearer ' + accesstoken
+            }
+        }
+        var artistID = await fetch('https://api.spotify.com/v1/search?q='+searchInput+'&type=artist',artistParameters)
+            .then(response=> {
+                return response.json()
+            })
+            .then(data=>{
+                // console.log(data)
+                return data.artists.items[0].id})
+        var returnedAlbum =await fetch('https://api.spotify.com/v1/artists/'+artistID+'/albums'+'?include_groups=album&market=US&limit=50',artistParameters)
+            .then(response=> {
+                // console.log(response)
+                return response.json()
+            })
+            .then(data=> {
+                setAlbums(data.items)
+            })
+    }
 
     return (
     <div className="podcastList">
       <h1 className="small-bold-text">TRENDING</h1>
       <h2>BEST PODCAST</h2>
       <div className="row"> 
-        {!albums ? (
-          <div>Loding</div>
+        {albums===undefined ? (
+          <div><h1>Loding</h1></div>
         ) : (
           albums.map((data,index) => {
             return (
