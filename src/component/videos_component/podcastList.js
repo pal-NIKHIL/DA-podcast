@@ -61,7 +61,7 @@ export const PodcastList = () => {
                     albums.map((data, index) => {
                         return (
                             <div key={index}>
-                                <VideoCard snippet={data}></VideoCard>;
+                                <VideoCard snippet={data}></VideoCard>
                             </div>
                         );
                     })
