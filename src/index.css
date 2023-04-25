@@ -638,9 +638,15 @@ div.overlay-panel.overlay-right img {
   .row{
     margin:var(--padding-inline-section) ;
     justify-content: center;
+    margin-left: 30px;
+    flex-wrap: wrap;
   }
-
-
+  .overlay-container {
+    display: none;
+  }
+  .log-in-container {
+    width: 100%;
+  }
 }
 .media-controls:before {
   background: no-repeat 23vw 30vh url("https://assets.codepen.io/518555/sparkles1.svg"), no-repeat right 25vw bottom 30vh url("https://assets.codepen.io/518555/sparkles4.svg"), no-repeat 40vw 30vh / 35vw url("https://assets.codepen.io/518555/blobStripe.svg");

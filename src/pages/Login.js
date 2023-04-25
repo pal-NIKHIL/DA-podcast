@@ -1,9 +1,7 @@
-import React, {useState, useContext} from "react";
-import {Link, useNavigate} from "react-router-dom";
-import {AuthContext} from "../App";
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 // import { Audio } from "./Audio";
-import {Home} from "./Home";
-import { signInWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../firebase";
 
 export const Login = () => {

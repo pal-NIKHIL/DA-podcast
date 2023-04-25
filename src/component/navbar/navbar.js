@@ -1,13 +1,10 @@
-import {useContext, useEffect, useState} from "react";
-import { AuthContext } from "../../App";
+import {useEffect, useState} from "react";
 import "../../index.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import hamburger_icon from "../../assest/hamburger_icon.png"
-import Mainlogo from "../../assest/mainLogo.png";
-import { MenuItem } from "../MenuItem";
+import {MenuItem} from "../MenuItem";
 import {Link, useLocation} from "react-router-dom";
 import {auth} from "../../firebase";
+
 export const Navbar = () => {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,9 +30,9 @@ export const Navbar = () => {
   return (
     <nav>
       <div className="container main-nav flex">
-        <a href="#" className="company-logo">
+        <Link to="/" className="company-logo">
           <img src="https://cdn.dribbble.com/users/250315/screenshots/11437914/media/24511d2620645ea2e8bdf6c79a2dbcd5.gif" />
-        </a>
+        </Link>
         <div className="nav-links" id={menuOpen ? 'active' : ''}>
           <ul className="flex header-links">
             {MenuItem.map(({ title, url }, index) => {
@@ -58,7 +55,7 @@ export const Navbar = () => {
               </ul>
             </div>
         ) : (
-            <div className="nav-links">
+            <div className="nav-links" id={menuOpen ? 'active' : ''}>
               <ul className="flex">
                 <li>
                   <Link to="/login" className="hover-links primary-button">

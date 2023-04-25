@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import {createContext, useEffect, useState} from "react";
 import "./App.css";
 import "./index.css";
 import {Navbar} from "./component/navbar/navbar";
@@ -8,7 +6,6 @@ import {Home} from "./pages/Home";
 import {Video} from "./pages/Video";
 import {Login} from "./pages/Login";
 import Signup from "./pages/Signup";
-import {Audiodes} from "./pages/Audiodes";
 import {Search} from "./component/audio_component/Search";
 import {AudioPlayer} from "./pages/AudioPlayer";
 
